@@ -1,13 +1,13 @@
 #include <stdio.h>
 #include <locale.h>
-//для чтения необходимо создать файл Read.txt и поместить его в этот репозиторий
-//В Read.txt заносится весь код
+//РґР»СЏ С‡С‚РµРЅРёСЏ РЅРµРѕР±С…РѕРґРёРјРѕ СЃРѕР·РґР°С‚СЊ С„Р°Р№Р» Read.txt Рё РїРѕРјРµСЃС‚РёС‚СЊ РµРіРѕ РІ СЌС‚РѕС‚ СЂРµРїРѕР·РёС‚РѕСЂРёР№
+//Р’ Read.txt Р·Р°РЅРѕСЃРёС‚СЃСЏ РІРµСЃСЊ РєРѕРґ
 
 struct key {
 	char* word;
 	int count;
 }
-keytab[] = {		//все ключевые слова
+keytab[] = {		//РІСЃРµ РєР»СЋС‡РµРІС‹Рµ СЃР»РѕРІР°
 	"auto", 0,
 	"break", 0,
 	"case", 0,
@@ -45,21 +45,21 @@ keytab[] = {		//все ключевые слова
 
 #define Nkeys (sizeof(keytab) / sizeof(struct key))
 #define MaxLen 500
-#define CODE 0			//обычный код
-#define STRCOMM 1		//комменты типа "//"
-#define BLOCKCOMM 2		//комменты типа "/**/"
+#define CODE 0			//РѕР±С‹С‡РЅС‹Р№ РєРѕРґ
+#define STRCOMM 1		//РєРѕРјРјРµРЅС‚С‹ С‚РёРїР° "//"
+#define BLOCKCOMM 2		//РєРѕРјРјРµРЅС‚С‹ С‚РёРїР° "/**/"
 
-int state;				//состояние кода (комменты или нет)
+int state;				//СЃРѕСЃС‚РѕСЏРЅРёРµ РєРѕРґР° (РєРѕРјРјРµРЅС‚С‹ РёР»Рё РЅРµС‚)
 
 int binsearchInMassOfStruct(char* word, struct key table[], int n);
 
 int main(int argc, char* argv[])
 {
 	setlocale(0, "Rus");
-	char text[MaxLen];			//массив для записи строк из файла
+	char text[MaxLen];			//РјР°СЃСЃРёРІ РґР»СЏ Р·Р°РїРёСЃРё СЃС‚СЂРѕРє РёР· С„Р°Р№Р»Р°
 	FILE* wxe = fopen("D:\\Read.txt", "r");
 	int textPos;
-	char word[MaxLen];			//для хранения слов из text
+	char word[MaxLen];			//РґР»СЏ С…СЂР°РЅРµРЅРёСЏ СЃР»РѕРІ РёР· text
 	state = CODE;
 	while (fgets(text, MaxLen, wxe)) {
 		textPos = 0;
@@ -75,12 +75,12 @@ int main(int argc, char* argv[])
 	int nkeywords = 0;
 	for (int i = 0; i < Nkeys; i++)
 		nkeywords += keytab[i].count;
-	printf("Количество ключевых слов в программе = %d", nkeywords);
+	printf("РљРѕР»РёС‡РµСЃС‚РІРѕ РєР»СЋС‡РµРІС‹С… СЃР»РѕРІ РІ РїСЂРѕРіСЂР°РјРјРµ = %d", nkeywords);
 	fclose(wxe);
 	return 0;
 }
 
-//бинарный поиск слова в массиве keytble
+//Р±РёРЅР°СЂРЅС‹Р№ РїРѕРёСЃРє СЃР»РѕРІР° РІ РјР°СЃСЃРёРІРµ keytble
 int binsearchInMassOfStruct(char* searchWord, struct key table[], int n) {
 	int low, mid, high;
 	low = 0;
@@ -96,7 +96,7 @@ int binsearchInMassOfStruct(char* searchWord, struct key table[], int n) {
 	return -1;
 }
 
-//получение слова из строки strsymb в result
+//РїРѕР»СѓС‡РµРЅРёРµ СЃР»РѕРІР° РёР· СЃС‚СЂРѕРєРё strsymb РІ result
 int getword(char* strsymb, int* textPos, char* result) {
 	while (!isalpha(*strsymb)) {
 		if (*strsymb == '\0')

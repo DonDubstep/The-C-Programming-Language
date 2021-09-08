@@ -73,7 +73,7 @@ int myatoi(char s[]) {
 	while (isspace(*s))
 		s++;
 	sign = (*s == '-') ? -1 : 1;
-	if (*s == '+' || *s == '-') /* пропуск знака */
+	if (*s == '+' || *s == '-') /* РїСЂРѕРїСѓСЃРє Р·РЅР°РєР° */
 		s++;
 	while(isdigit(*s))
 		n = 10 * n + (*s++ - '0');
@@ -127,7 +127,7 @@ int to_yearDay(int year, int month, int day) {
 		return day;
 	}
 	else {
-		printf("Неверно введены данные\n");
+		printf("РќРµРІРµСЂРЅРѕ РІРІРµРґРµРЅС‹ РґР°РЅРЅС‹Рµ\n");
 		exit(1);
 	}
 }
@@ -146,7 +146,7 @@ void to_dayAndMonth(int year, int yearDay, int* pmonth, int* pday) {
 		*pday = yearDay;
 	}
 	else {
-		printf("Неверно введены данные\n");
+		printf("РќРµРІРµСЂРЅРѕ РІРІРµРґРµРЅС‹ РґР°РЅРЅС‹Рµ\n");
 		exit(1);
 	}
 }
@@ -154,8 +154,8 @@ void to_dayAndMonth(int year, int yearDay, int* pmonth, int* pday) {
 
 char* monthName(int n) {
 	static char* name[] = {
-		"Неверный месяц", "Январь", "Февраль", "Март", "Апрель", "Май",
-		"Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"
+		"РќРµРІРµСЂРЅС‹Р№ РјРµСЃСЏС†", "РЇРЅРІР°СЂСЊ", "Р¤РµРІСЂР°Р»СЊ", "РњР°СЂС‚", "РђРїСЂРµР»СЊ", "РњР°Р№",
+		"РСЋРЅСЊ", "РСЋР»СЊ", "РђРІРіСѓСЃС‚", "РЎРµРЅС‚СЏР±СЂСЊ", "РћРєС‚СЏР±СЂСЊ", "РќРѕСЏР±СЂСЊ", "Р”РµРєР°Р±СЂСЊ"
 	};
 	return (n > 0 && n <= 12) ? name[n] : name[0];
 }
@@ -169,7 +169,7 @@ void push(int n) {
 	if (stackTop < MaxStackLen)
 		stack[stackTop++] = n;
 	else {
-		printf("Переполнение стека!\n");
+		printf("РџРµСЂРµРїРѕР»РЅРµРЅРёРµ СЃС‚РµРєР°!\n");
 	}
 }
 
@@ -177,7 +177,7 @@ int pop() {
 	if (stackTop > 0)
 		return stack[--stackTop];
 	else
-		printf("Стек пуст!");
+		printf("РЎС‚РµРє РїСѓСЃС‚!");
 }
 
 void tail(char str[], int n) {
@@ -448,17 +448,17 @@ int myscanf(char* fmt, ...) {
 #define Plus 1
 #define Minus 0
 	va_list ap;
-	char ignorestr[MaxLen];			//для хранения символов для игнора
-	char* pignorestr;				//указатель на строку игнора
+	char ignorestr[MaxLen];			//РґР»СЏ С…СЂР°РЅРµРЅРёСЏ СЃРёРјРІРѕР»РѕРІ РґР»СЏ РёРіРЅРѕСЂР°
+	char* pignorestr;				//СѓРєР°Р·Р°С‚РµР»СЊ РЅР° СЃС‚СЂРѕРєСѓ РёРіРЅРѕСЂР°
 	char* pstr = fmt;
-	char c;							//для считывания символов
-	char intmass[MaxLen];			//для хранения числа и последующего перевода в int
+	char c;							//РґР»СЏ СЃС‡РёС‚С‹РІР°РЅРёСЏ СЃРёРјРІРѕР»РѕРІ
+	char intmass[MaxLen];			//РґР»СЏ С…СЂР°РЅРµРЅРёСЏ С‡РёСЃР»Р° Рё РїРѕСЃР»РµРґСѓСЋС‰РµРіРѕ РїРµСЂРµРІРѕРґР° РІ int
 	int i, j, n, p = 0;
-	int sign;						//знак числа
-	int esign;						//знак числа с плавающей запятой
-	int mul;						//множитель для перевода в 16-ричную и 8-ричную системы
-	char digitflag = BeforeD;		//флаг для корректоной работы %d
-	char emass[MaxLen];				//хранение степени числа с плавающей запятой
+	int sign;						//Р·РЅР°Рє С‡РёСЃР»Р°
+	int esign;						//Р·РЅР°Рє С‡РёСЃР»Р° СЃ РїР»Р°РІР°СЋС‰РµР№ Р·Р°РїСЏС‚РѕР№
+	int mul;						//РјРЅРѕР¶РёС‚РµР»СЊ РґР»СЏ РїРµСЂРµРІРѕРґР° РІ 16-СЂРёС‡РЅСѓСЋ Рё 8-СЂРёС‡РЅСѓСЋ СЃРёСЃС‚РµРјС‹
+	char digitflag = BeforeD;		//С„Р»Р°Рі РґР»СЏ РєРѕСЂСЂРµРєС‚РѕРЅРѕР№ СЂР°Р±РѕС‚С‹ %d
+	char emass[MaxLen];				//С…СЂР°РЅРµРЅРёРµ СЃС‚РµРїРµРЅРё С‡РёСЃР»Р° СЃ РїР»Р°РІР°СЋС‰РµР№ Р·Р°РїСЏС‚РѕР№
 	int digit;
 
 	char strval[MaxLen];
@@ -468,14 +468,14 @@ int myscanf(char* fmt, ...) {
 
 	va_start(ap, fmt);;
 	while (*pstr) {
-		if (*pstr != '%') {				//запись символов игнора
+		if (*pstr != '%') {				//Р·Р°РїРёСЃСЊ СЃРёРјРІРѕР»РѕРІ РёРіРЅРѕСЂР°
 			ignorestr[p++] = *pstr++;
 			continue;
 		}
 		ignorestr[p] = '\0';
 		pignorestr = ignorestr;
 		if (ignorestr && digitflag != AfterD) {
-			while ((c = getchar()) == *pignorestr++);	//игнор входных символов
+			while ((c = getchar()) == *pignorestr++);	//РёРіРЅРѕСЂ РІС…РѕРґРЅС‹С… СЃРёРјРІРѕР»РѕРІ
 		}
 		ignorestr[0] = '\0';
 		p = 0;

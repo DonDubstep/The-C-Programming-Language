@@ -5,39 +5,39 @@
 #include <ctype.h>
 #define MaxLen 100
 
-int mystrlen(char[]);									//выдаёт длину строки
-void mystrcat(char*, char*);							//конкатенация строк
-void mystrcpy(char*, char*);							//копирует символы из одной строки в другую
-int strcmp(char* s1, char* s2);						//сравнение строк
-int strend(char*, char*);							//сравнение строк
-char* strncpy(char* to, char* from, int n);			//копирует n первых символов из одной строки в другую
-char* strncat(char* to, char* from, int n);			//конкатенация n первых строк
-char mystrncmp(char* s1, char* s2, int n);			//сравнение первых n строк
-int getline(char* s, int lim);						//ввод строки с ограничением в lim символов (стоп символы: '\n' & '`')
-int myatoi(char s[]);									//перевод строки в int
-void myitoa(int n, char s[]);							//перевод числа int в строку
-void reverse(char s[]);								//"переворот" строки
-int strindex(char base[], char part[]);					//вычисляет место part в base или выдает -1, если part нет в base
-void to_dayAndMonth(int year, int yearDay, int* pmonth, int* pday);		//определяет день и месяц по дню года
-int to_yearDay(int year, int month, int day);							//определяет день года по дню и месяцу
-char* monthName(int n);								//возвращает название n-го месяца
-int pop();											//достать элемент из стека
-void push(int n);									//положить элемент в стек
-void tail(char str[], int n);						//печать последних n символов строки str
-int getword(char* strsymb, int* textPos, char* result);		//получение из строки str слова в result (indexOfLastWord - позиция начального слова в str)
-int binsearch(int x, int mass[], int n);		//бинарный поиск индекса числа x в массиве mass 
-struct tnode* addtree(struct tnode* pnode, char* word, int nstr);		//рекурсивное добавление слова в бинарное дерево (без повторов)
-void treeprint(struct tnode* pnode);						//печать бинарного дерева
-char* mystrdup(char* s);										//выделение памяти для слова
+int mystrlen(char[]);									//РІС‹РґР°РµС‚ РґР»РёРЅСѓ СЃС‚СЂРѕРєРё
+void mystrcat(char*, char*);							//РєРѕРЅРєР°С‚РµРЅР°С†РёСЏ СЃС‚СЂРѕРє
+void mystrcpy(char*, char*);							//РєРѕРїРёСЂСѓРµС‚ СЃРёРјРІРѕР»С‹ РёР· РѕРґРЅРѕР№ СЃС‚СЂРѕРєРё РІ РґСЂСѓРіСѓСЋ
+int strcmp(char* s1, char* s2);						//СЃСЂР°РІРЅРµРЅРёРµ СЃС‚СЂРѕРє
+int strend(char*, char*);							//СЃСЂР°РІРЅРµРЅРёРµ СЃС‚СЂРѕРє
+char* strncpy(char* to, char* from, int n);			//РєРѕРїРёСЂСѓРµС‚ n РїРµСЂРІС‹С… СЃРёРјРІРѕР»РѕРІ РёР· РѕРґРЅРѕР№ СЃС‚СЂРѕРєРё РІ РґСЂСѓРіСѓСЋ
+char* strncat(char* to, char* from, int n);			//РєРѕРЅРєР°С‚РµРЅР°С†РёСЏ n РїРµСЂРІС‹С… СЃС‚СЂРѕРє
+char mystrncmp(char* s1, char* s2, int n);			//СЃСЂР°РІРЅРµРЅРёРµ РїРµСЂРІС‹С… n СЃС‚СЂРѕРє
+int getline(char* s, int lim);						//РІРІРѕРґ СЃС‚СЂРѕРєРё СЃ РѕРіСЂР°РЅРёС‡РµРЅРёРµРј РІ lim СЃРёРјРІРѕР»РѕРІ (СЃС‚РѕРї СЃРёРјРІРѕР»С‹: '\n' & '`')
+int myatoi(char s[]);									//РїРµСЂРµРІРѕРґ СЃС‚СЂРѕРєРё РІ int
+void myitoa(int n, char s[]);							//РїРµСЂРµРІРѕРґ С‡РёСЃР»Р° int РІ СЃС‚СЂРѕРєСѓ
+void reverse(char s[]);								//"РїРµСЂРµРІРѕСЂРѕС‚" СЃС‚СЂРѕРєРё
+int strindex(char base[], char part[]);					//РІС‹С‡РёСЃР»СЏРµС‚ РјРµСЃС‚Рѕ part РІ base РёР»Рё РІС‹РґР°РµС‚ -1, РµСЃР»Рё part РЅРµС‚ РІ base
+void to_dayAndMonth(int year, int yearDay, int* pmonth, int* pday);		//РѕРїСЂРµРґРµР»СЏРµС‚ РґРµРЅСЊ Рё РјРµСЃСЏС† РїРѕ РґРЅСЋ РіРѕРґР°
+int to_yearDay(int year, int month, int day);							//РѕРїСЂРµРґРµР»СЏРµС‚ РґРµРЅСЊ РіРѕРґР° РїРѕ РґРЅСЋ Рё РјРµСЃСЏС†Сѓ
+char* monthName(int n);								//РІРѕР·РІСЂР°С‰Р°РµС‚ РЅР°Р·РІР°РЅРёРµ n-РіРѕ РјРµСЃСЏС†Р°
+int pop();											//РґРѕСЃС‚Р°С‚СЊ СЌР»РµРјРµРЅС‚ РёР· СЃС‚РµРєР°
+void push(int n);									//РїРѕР»РѕР¶РёС‚СЊ СЌР»РµРјРµРЅС‚ РІ СЃС‚РµРє
+void tail(char str[], int n);						//РїРµС‡Р°С‚СЊ РїРѕСЃР»РµРґРЅРёС… n СЃРёРјРІРѕР»РѕРІ СЃС‚СЂРѕРєРё str
+int getword(char* strsymb, int* textPos, char* result);		//РїРѕР»СѓС‡РµРЅРёРµ РёР· СЃС‚СЂРѕРєРё str СЃР»РѕРІР° РІ result (indexOfLastWord - РїРѕР·РёС†РёСЏ РЅР°С‡Р°Р»СЊРЅРѕРіРѕ СЃР»РѕРІР° РІ str)
+int binsearch(int x, int mass[], int n);		//Р±РёРЅР°СЂРЅС‹Р№ РїРѕРёСЃРє РёРЅРґРµРєСЃР° С‡РёСЃР»Р° x РІ РјР°СЃСЃРёРІРµ mass 
+struct tnode* addtree(struct tnode* pnode, char* word, int nstr);		//СЂРµРєСѓСЂСЃРёРІРЅРѕРµ РґРѕР±Р°РІР»РµРЅРёРµ СЃР»РѕРІР° РІ Р±РёРЅР°СЂРЅРѕРµ РґРµСЂРµРІРѕ (Р±РµР· РїРѕРІС‚РѕСЂРѕРІ)
+void treeprint(struct tnode* pnode);						//РїРµС‡Р°С‚СЊ Р±РёРЅР°СЂРЅРѕРіРѕ РґРµСЂРµРІР°
+char* mystrdup(char* s);										//РІС‹РґРµР»РµРЅРёРµ РїР°РјСЏС‚Рё РґР»СЏ СЃР»РѕРІР°
 int* massdup(int arr);
-char myToLower(char c);								//перевод символа в нижний регистр
-char myToUpper(char c);								//перевод символа в верхний регистр
+char myToLower(char c);								//РїРµСЂРµРІРѕРґ СЃРёРјРІРѕР»Р° РІ РЅРёР¶РЅРёР№ СЂРµРіРёСЃС‚СЂ
+char myToUpper(char c);								//РїРµСЂРµРІРѕРґ СЃРёРјРІРѕР»Р° РІ РІРµСЂС…РЅРёР№ СЂРµРіРёСЃС‚СЂ
 void myprintf(char* str, ...);						//printf 
 int myscanf(char* fmt, ...);						//scanf
 
 
 
-//////////невисокосный год и високосный год
+//////////РЅРµРІРёСЃРѕРєРѕСЃРЅС‹Р№ РіРѕРґ Рё РІРёСЃРѕРєРѕСЃРЅС‹Р№ РіРѕРґ
 static int daytable[][13] = {
 	{0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31},
 	{0, 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31}

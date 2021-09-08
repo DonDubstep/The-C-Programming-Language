@@ -22,8 +22,8 @@ struct tnode* addtree(struct tnode* pnode, char* word, int nstr);
 int main(int argc, char* argv[])
 {
 	setlocale(LC_ALL, "Rus");
-	printf("\t\t\tПрограмма для посчёта количества слов и расположения их в тексте\n");
-	printf("\t\t\t\t\tИспользовать кодировку ANSI\n\n");
+	printf("\t\t\tРџСЂРѕРіСЂР°РјРјР° РґР»СЏ РїРѕСЃС‡С‘С‚Р° РєРѕР»РёС‡РµСЃС‚РІР° СЃР»РѕРІ Рё СЂР°СЃРїРѕР»РѕР¶РµРЅРёСЏ РёС… РІ С‚РµРєСЃС‚Рµ\n");
+	printf("\t\t\t\t\tРСЃРїРѕР»СЊР·РѕРІР°С‚СЊ РєРѕРґРёСЂРѕРІРєСѓ ANSI\n\n");
 	FILE* wxe = fopen("D:\\Read.txt", "r");
 	char text[MaxLen];
 	char word[MaxLen];
@@ -37,7 +37,7 @@ int main(int argc, char* argv[])
 			root = addtree(root, word, nstr);
 		}
 	}
-	printf("Количество                   Слово    Строки\n");
+	printf("РљРѕР»РёС‡РµСЃС‚РІРѕ                   РЎР»РѕРІРѕ    РЎС‚СЂРѕРєРё\n");
 	treeprint(root);
 	fclose(wxe);
 	return 0;

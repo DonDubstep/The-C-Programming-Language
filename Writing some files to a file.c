@@ -5,7 +5,7 @@
 int main(int argn, char* argv[]) {
 	setlocale(0, "rus");
 	if (argn < 2) {
-		printf("Îøèáêà: íåò ôàéëîâ äëÿ ÷òåíèÿ\n");
+		printf("ÐžÑˆÐ¸Ð±ÐºÐ°: Ð½ÐµÑ‚ Ñ„Ð°Ð¹Ð»Ð¾Ð² Ð´Ð»Ñ Ñ‡Ñ‚ÐµÐ½Ð¸Ñ\n");
 		return 1;
 	}
 	FILE* ofile = fopen("Output.txt", "w");
@@ -14,12 +14,12 @@ int main(int argn, char* argv[]) {
 	for (int i = 1; i < argn; i++) {
 		FILE* fp = fopen(argv[i], "r");
 		fprintf(ofile, "==================%d==================\n", pagecounter++);
-		fprintf(ofile, "Ôàéë:%s\n", argv[i]);
+		fprintf(ofile, "Ð¤Ð°Ð¹Ð»:%s\n", argv[i]);
 		while ((c = fgetc(fp)) != EOF) {
 			fputc(c, ofile);
 		}
 		fprintf(ofile, "\n");
 	}
-	printf("Ïðîãðàììà îòðàáîòàëà óñïåøíî, ïðîâåðü\n");
+	printf("ÐŸÑ€Ð¾Ð³Ñ€Ð°Ð¼Ð¼Ð° Ð¾Ñ‚Ñ€Ð°Ð±Ð¾Ñ‚Ð°Ð»Ð° ÑƒÑÐ¿ÐµÑˆÐ½Ð¾, Ð¿Ñ€Ð¾Ð²ÐµÑ€ÑŒ\n");
 	return 0;
 }
